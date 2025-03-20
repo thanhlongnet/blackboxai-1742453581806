@@ -6,21 +6,19 @@ Options -Indexes
 
 # Protect sensitive files
 <FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </FilesMatch>
 
 # Protect includes directory
 <FilesMatch "^(config|database|functions)\.php$">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </FilesMatch>
 
 # Protect .htaccess file
 <Files .htaccess>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
+
 
 # Custom error pages
 ErrorDocument 404 /404.php
@@ -31,7 +29,7 @@ ErrorDocument 403 /403.php
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Set default character set
-AddDefaultCharset UTF-8
+#AddDefaultCharset UTF-8
 
 # Enable compression for better performance
 <IfModule mod_deflate.c>
